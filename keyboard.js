@@ -379,7 +379,7 @@ function clearCurrent() {
   let scrpath = new URL(script.src);
   let helpDivClick = false; //Don't close keyboard or help window when help window is open
   let kEventListeners = false; //Bool for if Event listeners just for Korean exist
-  let search = null;
+  let search = null; //For Korean
 
   this.VKI_showVersion = true; // Display the version number
   this.VKI_deadBox = true; // Show the dead keys checkbox
@@ -1637,11 +1637,11 @@ function clearCurrent() {
             array.sort();
             //load array in select box
             for (var i = 0; i < array.length; i++) {
-            var option = document.createElement("option");
-            option.value = array[i];
-            option.text = array[i];
-            kbSelect.appendChild(option);
-          }
+              var option = document.createElement("option");
+              option.value = array[i];
+              option.text = array[i];
+              kbSelect.appendChild(option);
+            }
           //Change layout
           kbSelect.onchange = function(e) {
             current = [];
@@ -1765,7 +1765,7 @@ function clearCurrent() {
           let small = document.createElement('small');
               small.title = this.VKI_i18n['10'];
             VKI_addListener(small, 'click', function() {
-                helpCheck();
+              helpCheck();
               --self.VKI_size;
               self.VKI_kbsize();
               self.VKI_target.focus();
@@ -2046,7 +2046,8 @@ function clearCurrent() {
                       break;
                   default:
                     VKI_addListener(td, 'click', VKI_keyClick, false);
-                } VKI_mouseEvents(td);
+
+                  } VKI_mouseEvents(td);
                 tr.appendChild(td);
               for (let z = 0; z < 4; z++)
                 if (this.VKI_deadkey[lkey[z] = lkey[z] || '']) hasDeadKey = true;
